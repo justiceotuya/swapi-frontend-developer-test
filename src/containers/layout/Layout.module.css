@@ -1,0 +1,149 @@
+.layoutMain {
+    height: 35vh;
+    background-image: url('../../assets/hero-banner.jpg');
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.layoutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.layoutLogo,
+.layoutHeaderImage {
+    width: 50px
+}
+
+.layoutLogo {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 2em 0;
+}
+
+.layoutHeaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #fff, #5b5a5c) left bottom no-repeat;
+    background-size: 100% 3px;
+    margin-bottom: 10px
+}
+
+.layoutHeaderImage {}
+
+.layoutHeaderTitle {
+    text-transform: capitalize;
+    font-size: 1em;
+    margin-left: .3em
+}
+
+.layoutHeaderSubtitle {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 2em 2em 2em;
+    margin: 0;
+}
+
+.layoutHeaderSearchContainer {
+    width: 100%;
+}
+
+.layoutHeaderSearchBox {
+    border-radius: 3px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    background-image: url('../../assets/search.svg');
+    background-repeat: no-repeat;
+    text-indent: 25px;
+    background-size: 15px 15px;
+    background-position: 10px center;
+    padding: 10px 5px;
+    width: 80%;
+    font-size: 14px;
+}
+
+
+
+@media screen and (min-width: 720px) {
+    .layoutLogo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .layoutHeaderSubtitle {
+        max-width: 60%;
+        font-size: 18px;
+    }
+
+    .layoutLogo,
+    .layoutHeaderImage {
+        width: 100px
+    }
+
+    .layoutHeaderContainer {
+        margin-bottom: 20px;
+        padding-bottom: 10px
+    }
+
+
+}
+
+
+@media screen and (min-width: 1024px) {
+    .layoutLogo {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+
+    .layoutHeaderSearchBox {
+        text-indent: 13%;
+        background-position: 8% center;
+    }
+
+    .layoutLogo,
+    .layoutHeaderImage {
+        width: 100px
+    }
+
+    .layoutMain {
+        height: 50vh;
+    }
+
+    .layoutHeaderTitle {
+        text-transform: capitalize;
+        font-size: 2em;
+        margin: 0 0 0 .3em;
+    }
+
+    .layoutHeaderSubtitle {
+        max-width: 50%;
+        font-size: 24px;
+    }
+
+    .layoutHeaderContainer {
+        margin-bottom: 20px;
+    }
+
+}
+
+
+/* label:before {
+    content: url('../../assets/search.svg');
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    left: 100px;
+    z-index: 2
+} */
