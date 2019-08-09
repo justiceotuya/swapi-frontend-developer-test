@@ -4,7 +4,7 @@ Using either Vue (preferably) or React framework, build a star wars directory us
 ## Website layout
 We've created a design for you to use to build your site. Layout files can be found [here](https://scene.zeplin.io/project/5d122e4c5259df7049ad9655)
 - this should only serve as a guide for what your final site should try as much as possible to replicate
-- the images visible in the design above for Characters/Starships/Planets cannot (unfortunately) be gotten from the [SWAPI](https://swapi.co/), as it doesn't provide images in it's responses. Because of this, we've provided an assets folder with images you can use instead.
+- the images visible in the design above for Characters/Starships/Planets cannot (unfortunately) be gotten from the [SWAPI](https://swapi.co/), as it doesn't provide images in it's responses. Because of this, we've provided an assets folder with images you can use instead. 
 
 **Note:** The assets provided (with the exception of the logo and hero-banner) are simply placeholder images to help your site look/feel more complete in the _'Popular Starships'_ and _'Starwars Characters'_ pages. We do **not** expect you to programmatically map characters/ships to their respective images in those pages. We do however expect you to try to replicate the _home page_ as much as possible.
 
@@ -14,7 +14,7 @@ A single page application using either Vue (preferably) or React featuring:
 - A "componentized" approach, split your code into small building blocks, showcase your clean architecture skills.
 - CSS can be written using PostCSS, SASS, LESS or similar higher-level language
 - Responsive design
-
+  
 ## Functional requirements
 - User can view a list of people (humans & robots), list item should contain full name, birth year and gender
 - User can view a list of planets, list item should contain name, temperature and population.
@@ -35,7 +35,7 @@ A single page application using either Vue (preferably) or React featuring:
 - Pride in craftsmanship
 
 ## Extra Bonus Points
-The following items will earn you bonus points. They are not requirements, the challenge is 100% completeable without them.
+The following items will earn you bonus points. They are not requirements, the challenge is 100% completeable without them. 
 - Use Vue which is the preferred framework
 - Include animations & micro-interactions 👌🏾
 
@@ -52,29 +52,3 @@ When you feel you're ready to submit do please:
 
 
 Finally, we'd like to say *Good luck! And have fun!*
-
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
