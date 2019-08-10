@@ -1,0 +1,62 @@
+/* .cardContainer {
+    height: 300px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .08),
+        0 -1px 3px 0 rgba(0, 0, 0, 0.06);
+    position: relative;
+    border-radius: 2px;
+    margin-bottom: 0;
+    background: #cdcbc5
+}
+
+
+.cardImage {
+    height: calc(50% - 10px);
+    background-color: #fff;
+    z-index: 3;
+    object-fit: cover;
+    border-top: 5px solid #000;
+    border-bottom: 5px solid #000;
+}
+
+.cardTextContainer {
+    background: #eff1f6;
+    position: absolute;
+    height: calc(50% - 5px);
+    width: 100%;
+    top: 50%;
+    left: 5px;
+}
+
+.cardTitle,
+.cardText,
+.cardButton,
+.cardFinalText {
+    background: #e1e1f08a;
+    display: block;
+    margin: .5em;
+}
+
+.cardTitle {
+    height: 12px;
+    width: 20%;
+}
+
+
+
+.cardText {}
+
+.cardButton {
+    height: 20px;
+    width: 20%;
+}
+
+
+.cardText {}
+
+.cardFinalText {}
+
+.cardButton {} */

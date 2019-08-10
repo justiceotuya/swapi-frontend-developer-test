@@ -1,0 +1,86 @@
+.skeletonCardContainer {
+    height: 300px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .08),
+        0 -1px 3px 0 rgba(0, 0, 0, 0.06);
+    position: relative;
+    border-radius: 2px;
+    margin-bottom: 0;
+}
+
+
+.skeletonCardImage {
+    height: 50%;
+    background-color: #fff;
+    z-index: 3;
+    animation-name: loader-animate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Loader animation  */
+@keyframes loader-animate {
+    from {
+        transition: none;
+    }
+
+    to {
+        background-color: #15171a31;
+        transition: all 0.3s ease-out;
+    }
+}
+
+.skeletonCardTextContainer {
+    background: #eff1f6;
+    position: absolute;
+    height: calc(50% - 5px);
+    width: 100%;
+    top: 50%;
+    left: 5px;
+
+}
+
+.skeletonCardTitle,
+.skeletonCardText,
+.skeletonCardButton,
+.skeletonCardFinalText {
+    background: #e1e1f08a;
+    display: block;
+    margin: .5em;
+    animation-name: loader-animate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.skeletonCardTitle {
+    height: 12px;
+    width: 20%;
+}
+
+.skeletonCardFinalText {
+    height: 10px;
+    width: 50%
+}
+
+.skeletonCardText {
+    height: 10px;
+    width: 85%
+}
+
+.skeletonCardButton {
+    height: 20px;
+    width: 20%;
+    float: right
+}
+
+
+.skeletonCardText {}
+
+.skeletonCardFinalText {}
+
+.skeletonCardButton {}

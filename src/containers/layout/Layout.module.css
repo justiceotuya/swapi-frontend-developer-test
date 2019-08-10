@@ -1,4 +1,4 @@
-.layoutMain {
+.headerMain {
     height: 35vh;
     background-image: url('../../assets/hero-banner.jpg');
     color: #fff;
@@ -10,25 +10,25 @@
     padding: 0;
 }
 
-.layoutContainer {
+.headerContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.layoutLogo,
-.layoutHeaderImage {
+.headerLogo,
+.headerHeaderImage {
     width: 50px
 }
 
-.layoutLogo {
+.headerLogo {
     display: block;
     margin: 0 auto;
     padding: 0 0 2em 0;
 }
 
-.layoutHeaderContainer {
+.headerHeaderContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,26 +37,27 @@
     margin-bottom: 10px
 }
 
-.layoutHeaderImage {}
+.headerHeaderImage {}
 
-.layoutHeaderTitle {
+.headerHeaderTitle {
     text-transform: capitalize;
     font-size: 1em;
     margin-left: .3em
 }
 
-.layoutHeaderSubtitle {
+.headerHeaderSubTitle {
     max-width: 100%;
     text-align: center;
     padding: 0 2em 2em 2em;
     margin: 0;
+    color: #e0dde4
 }
 
-.layoutHeaderSearchContainer {
+.headerHeaderSearchContainer {
     width: 100%;
 }
 
-.layoutHeaderSearchBox {
+.headerHeaderSearchBox {
     border-radius: 3px;
     border: none;
     margin: 0 auto;
@@ -72,26 +73,40 @@
     font-size: 14px;
 }
 
+.layoutPageTopic {
+    margin: 2em auto;
+    text-align: center;
+    color: #332f2d;
+}
+
+.layoutPageTopic:after {
+    content: '';
+    display: block;
+    width: 70px;
+    border-bottom: 3px solid #353229;
+    margin: .3em auto;
+
+}
 
 
 @media screen and (min-width: 720px) {
-    .layoutLogo {
+    .headerLogo {
         position: absolute;
         top: 20px;
         left: 20px;
     }
 
-    .layoutHeaderSubtitle {
+    .headerHeaderSubTitle {
         max-width: 60%;
         font-size: 18px;
     }
 
-    .layoutLogo,
-    .layoutHeaderImage {
+    .headerLogo,
+    .headerHeaderImage {
         width: 100px
     }
 
-    .layoutHeaderContainer {
+    .headerHeaderContainer {
         margin-bottom: 20px;
         padding-bottom: 10px
     }
@@ -101,38 +116,38 @@
 
 
 @media screen and (min-width: 1024px) {
-    .layoutLogo {
+    .headerLogo {
         position: absolute;
-        top: 40px;
+        top: 20px;
         left: 40px;
     }
 
-    .layoutHeaderSearchBox {
+    .headerHeaderSearchBox {
         text-indent: 13%;
         background-position: 8% center;
     }
 
-    .layoutLogo,
-    .layoutHeaderImage {
+    .headerLogo,
+    .headerHeaderImage {
         width: 100px
     }
 
-    .layoutMain {
+    .headerMain {
         height: 50vh;
     }
 
-    .layoutHeaderTitle {
+    .headerHeaderTitle {
         text-transform: capitalize;
         font-size: 2em;
         margin: 0 0 0 .3em;
     }
 
-    .layoutHeaderSubtitle {
+    .headerHeaderSubTitle {
         max-width: 50%;
         font-size: 24px;
     }
 
-    .layoutHeaderContainer {
+    .headerHeaderContainer {
         margin-bottom: 20px;
     }
 
