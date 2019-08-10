@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Card.module.css';
-import image from '../../assets/starship-1.jpg';
 import { ReactComponent as Logo } from '../../assets/next.svg';
 import { STRINGS } from './constants';
 
@@ -17,7 +16,7 @@ const {
     readmoreButton,
 } = styles;
 
-const Card = ({ title, details }) => (
+const Card = ({ title, details, image }) => (
     <div className={cardContainer}>
         <div className={cardImageContainer}>
             <img src={image} alt="character" className={cardImage} />
@@ -38,6 +37,7 @@ const Card = ({ title, details }) => (
 
 Card.propTypes = {
     details: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
 };
 

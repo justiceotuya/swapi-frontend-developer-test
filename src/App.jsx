@@ -1,15 +1,29 @@
 import React from 'react';
-import Layout from './containers/layout';
-import SkeletonCard from './components/skeletonCard';
-import Card from './components/Card';
+import Home from './containers/home/Home';
+import { StateProvider } from './StateContext';
+
+const initialState = {
+    data: {},
+    loading: true,
+};
+
+const reducer = (state, action) => {
+    const { type, payload } = action;
+    switch (type) {
+    case 'loading':
+        return { ...state, loading: !state.loading };
+    case 'fetch data':
+        console.log(action.payload);
+        return { ...state, loading: false, data: action.payload };
+    default:
+        return state;
+    }
+};
 
 const App = () => (
-    <div>
-        <Layout pageTopic="Popular Starships">
-            {/* <SkeletonCard /> */}
-            <Card />
-        </Layout>
-    </div>
+    <StateProvider initialState={initialState} reducer={reducer}>
+        <Home />
+    </StateProvider>
 );
 
 export default App;

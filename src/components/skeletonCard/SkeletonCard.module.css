@@ -1,6 +1,4 @@
 .skeletonCardContainer {
-    height: 300px;
-    width: 250px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -13,7 +11,9 @@
 
 
 .skeletonCardImage {
-    height: 50%;
+    height: calc(58% - 10px);
+    border-top: 10px solid rgba(0, 0, 0, 0.096);
+    border-bottom: 10px solid rgba(0, 0, 0, 0.096);
     background-color: #fff;
     z-index: 3;
     animation-name: loader-animate;
@@ -37,10 +37,14 @@
 .skeletonCardTextContainer {
     background: #eff1f6;
     position: absolute;
-    height: calc(50% - 5px);
-    width: 100%;
-    top: 50%;
-    left: 5px;
+    height: calc(42% - 35px);
+    width: calc(100% - 2em);
+    margin-left: auto;
+    right: 0;
+    margin-right: auto;
+    top: 60%;
+    left: 0;
+    padding: .5em;
 
 }
 
@@ -50,16 +54,17 @@
 .skeletonCardFinalText {
     background: #e1e1f08a;
     display: block;
-    margin: .5em;
     animation-name: loader-animate;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    margin: 12px 0;
+
 }
 
 .skeletonCardTitle {
-    height: 12px;
-    width: 20%;
+    height: 28px;
+    width: 20%
 }
 
 .skeletonCardFinalText {
@@ -73,9 +78,17 @@
 }
 
 .skeletonCardButton {
-    height: 20px;
-    width: 20%;
-    float: right
+    height: 48px;
+    width: 153px;
+    background: #D8D8D8;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    text-decoration: none;
+    color: #545460;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 
@@ -84,3 +97,10 @@
 .skeletonCardFinalText {}
 
 .skeletonCardButton {}
+
+@media screen and (min-width: 720px) {
+    .skeletonCardTextContainer {
+        width: calc(100% - 1em);
+        left: 10px;
+    }
+}

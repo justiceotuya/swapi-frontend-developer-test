@@ -1,5 +1,5 @@
 .headerMain {
-    height: 35vh;
+    height: 35%;
     background-image: url('../../assets/hero-banner.jpg');
     color: #fff;
     display: flex;
@@ -7,7 +7,7 @@
     align-items: center;
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    padding: 3em 0;
 }
 
 .headerContainer {
@@ -19,7 +19,7 @@
 
 .headerLogo,
 .headerHeaderImage {
-    width: 50px
+    width: 80px
 }
 
 .headerLogo {
@@ -41,7 +41,7 @@
 
 .headerHeaderTitle {
     text-transform: capitalize;
-    font-size: 1em;
+    font-size: 1.5em;
     margin-left: .3em
 }
 
@@ -140,6 +140,8 @@
 
     .headerMain {
         height: 60vh;
+        padding: 1em 0;
+
     }
 
     .headerHeaderTitle {
