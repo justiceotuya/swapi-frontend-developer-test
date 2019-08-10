@@ -64,6 +64,7 @@
     display: block;
     position: relative;
     background-image: url('../../assets/search.svg');
+    background-color: #E8E6E6;
     background-repeat: no-repeat;
     text-indent: 25px;
     background-size: 15px 15px;
@@ -87,6 +88,11 @@
     margin: .3em auto;
 
 }
+
+.layoutContent {
+    margin: 2em
+}
+
 
 
 @media screen and (min-width: 720px) {
@@ -133,7 +139,7 @@
     }
 
     .headerMain {
-        height: 50vh;
+        height: 60vh;
     }
 
     .headerHeaderTitle {
@@ -145,6 +151,7 @@
     .headerHeaderSubTitle {
         max-width: 50%;
         font-size: 24px;
+        color: #CFCFD0
     }
 
     .headerHeaderContainer {

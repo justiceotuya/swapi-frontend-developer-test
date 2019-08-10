@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import styles from './Layout.module.css';
 
-const { layoutPageTopic } = styles;
+const { layoutPageTopic, layoutContent } = styles;
 
 const Layout = ({ pageTopic, children }) => (
     <>
         <Header />
         <h2 className={layoutPageTopic}>{pageTopic}</h2>
-        {children}
+        <div className={layoutContent}>
+            {children}
+        </div>
     </>
 );
 

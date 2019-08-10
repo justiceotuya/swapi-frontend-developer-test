@@ -1,6 +1,6 @@
-/* .cardContainer {
-    height: 300px;
-    width: 250px;
+.cardContainer {
+    height: 425px;
+    max-width: 359px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -9,7 +9,7 @@
     position: relative;
     border-radius: 2px;
     margin-bottom: 0;
-    background: #cdcbc5
+    background: #D8D8D8
 }
 
 
@@ -18,17 +18,18 @@
     background-color: #fff;
     z-index: 3;
     object-fit: cover;
-    border-top: 5px solid #000;
-    border-bottom: 5px solid #000;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
 }
 
 .cardTextContainer {
-    background: #eff1f6;
+    background: #F2F2F2;
     position: absolute;
-    height: calc(50% - 5px);
-    width: 100%;
-    top: 50%;
-    left: 5px;
+    height: calc(50% - 35px);
+    width: calc(100% - 1em);
+    top: 52%;
+    left: 10px;
+    padding: .5em;
 }
 
 .cardTitle,
@@ -50,8 +51,16 @@
 .cardText {}
 
 .cardButton {
-    height: 20px;
-    width: 20%;
+    padding: 15px 25px;
+    background: #D8D8D8;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    text-decoration: none;
+    color: #545460;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 
@@ -59,4 +68,17 @@
 
 .cardFinalText {}
 
-.cardButton {} */
+.readmoreButton {
+    fill: #303040;
+    width: 15px;
+    margin-left: 10px;
+}
+
+.cardButton:hover {
+    background-color: #0D0D18;
+    color: #fff
+}
+
+.cardButton:hover .readmoreButton {
+    fill: #fff
+}
