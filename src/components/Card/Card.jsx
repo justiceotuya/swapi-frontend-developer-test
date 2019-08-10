@@ -3,29 +3,32 @@ import PropTypes from 'prop-types';
 import styles from './Card.module.css';
 import image from '../../assets/starship-1.jpg';
 import { ReactComponent as Logo } from '../../assets/next.svg';
+import { STRINGS } from './constants';
 
+const { READ_MORE } = STRINGS;
 const {
     cardContainer,
     cardTitle,
     cardText,
     cardButton,
     cardImage,
+    cardImageContainer,
     cardTextContainer,
     readmoreButton,
 } = styles;
 
-const Card = () => (
+const Card = ({ title, details }) => (
     <div className={cardContainer}>
-        <img src={image} alt="character" className={cardImage} />
+        <div className={cardImageContainer}>
+            <img src={image} alt="character" className={cardImage} />
+        </div>
         <div className={cardTextContainer}>
-            <p className={cardTitle}>Anger</p>
+            <p className={cardTitle}>{title}</p>
             <p className={cardText}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, repudiandae?
+                {details}
             </p>
-
             <a href="#" className={cardButton}>
-                Read more
-                {/* <img className={readmoreButton} src={next} alt="read-more" /> */}
+                {READ_MORE}
                 <Logo className={readmoreButton} />
             </a>
 
@@ -34,7 +37,8 @@ const Card = () => (
 );
 
 Card.propTypes = {
-
+    details: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
 };
 
 export default Card;
