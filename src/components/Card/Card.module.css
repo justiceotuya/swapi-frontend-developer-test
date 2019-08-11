@@ -11,8 +11,6 @@
 
 
 .cardImage {
-    /*z-index: 3;
-     */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -49,18 +47,27 @@
 .cardButton,
 .cardFinalText {
     display: block;
-    margin: .5em;
+    margin: .5em 0;
 }
 
 .cardTitle {
     font-size: 24px;
     font-weight: 600;
+    margin: 0
 }
 
-
-
 .cardText {
-    line-height: 150%
+    /* line-height: 150% */
+    margin: 0;
+    font-size: 14px
+}
+
+.cardModel {}
+
+.cardCargoCapacity {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0
 }
 
 .cardButton {

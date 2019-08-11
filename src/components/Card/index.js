@@ -1,3 +1,3 @@
-import Card from './Card';
+import SpaceShipCard from './SpaceShipCard';
 
-export default Card;
+export default SpaceShipCard;

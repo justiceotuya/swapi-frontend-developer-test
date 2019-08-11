@@ -5,6 +5,20 @@
     grid-gap: 2em;
 }
 
+.homePageTopic {
+    margin: 2em auto;
+    text-align: center;
+    color: #332f2d;
+}
+
+.homePageTopic:after {
+    content: '';
+    display: block;
+    width: 70px;
+    border-bottom: 3px solid #353229;
+    margin: .3em auto;
+}
+
 
 @media screen and (max-width: 300px) {
     .starShipSection {

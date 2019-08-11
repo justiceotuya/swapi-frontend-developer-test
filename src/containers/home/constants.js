@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const starship1 = require('../../assets/starship-1.jpg');
 const starship2 = require('../../assets/starship-2.jpg');
 const starship3 = require('../../assets/starship-3.jpg');

@@ -1,7 +1,8 @@
+/* eslint-disable camelcase */
 import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Card from '../../components/Card';
+import SpaceShipCard from '../../components/Card';
 import Layout from '../layout';
 import styles from './Home.module.css';
 import SkeletonCard from '../../components/skeletonCard';
@@ -10,6 +11,7 @@ import { SPACESHIPS, PLANET, CHARACTER } from './constants';
 
 const {
     starShipSection,
+    homePageTopic,
 } = styles;
 
 const getCards = () => {
@@ -59,26 +61,92 @@ const Home = () => {
         fetchData();
     }, []);
 
+    // generate items for the front page
+    const getHomePageSection = (data, num) => {
+        // create a new array and insert the first result from the api using the number passed as limit
+        let newCard = [];
+        for (let i = 1; i <= num; i++) {
+            newCard = [...newCard, data[i]];
+        }
+        console.log(newCard);
+        return newCard;
+    };
+
     const { results } = data;
-    console.log(getImages(SPACESHIPS));
+
     return (
         <Layout pageTopic="Popular Starships">
+            <h2 className={homePageTopic}>Popular Spaceships</h2>
             <section className={starShipSection}>
                 {/* <SkeletonCard /> */}
                 {
-                    loading ? getCards().length > 0 && getCards().map(num => {
-                        console.log('dataADD', data);
-                        return (
-                            <SkeletonCard />
-                        );
-                    })
+                    loading ? getCards().length > 0 && getCards().map(num => (
+                        <SkeletonCard key={num} />
+                    ))
 
-                        : results.map(item => (
-                            <Card
-                                key={item.name}
+                        : getHomePageSection(results, 6).map(data => {
+                            const {
+                                cargo_capacity,
+                                length,
+                                manufacturer,
+                                model,
+                                starship_class,
+                                name,
+                            } = data;
+                            return (
+                                <SpaceShipCard
+                                    key={data.name}
+                                    image={getImages(SPACESHIPS)}
+                                    cargo_capacity={cargo_capacity}
+                                    length={length}
+                                    manufacturer={manufacturer}
+                                    model={model}
+                                    starship_class={starship_class}
+                                    name={name}
+                                />
+                            );
+                        })
+
+                }
+
+            </section>
+
+            {/* planets */}
+            <h2 className={homePageTopic}>Popular Planets</h2>
+            <section className={starShipSection}>
+                {/* <SkeletonCard /> */}
+                {
+                    loading ? getCards().length > 0 && getCards().map(num => (
+                        <SkeletonCard key={num} />
+                    ))
+
+                        : getHomePageSection(results, 6).map(data => (
+                            <SpaceShipCard
+                                key={data.name}
                                 image={getImages(SPACESHIPS)}
-                                title={item.name}
+                                title={data.name}
                                 details={'f01fac..365f9b9 master -> master Branch \'master\' set up to track remote branch \'master\' from \'origin\'.'}
+                            />
+                        ))
+
+                }
+
+            </section>
+
+            {/* people */}
+            <h2 className={homePageTopic}>Popular Characters</h2>
+            <section className={starShipSection}>
+                {/* <SkeletonCard /> */}
+                {
+                    loading ? getCards().length > 0 && getCards().map(num => (
+                        <SkeletonCard key={num} />
+                    ))
+
+                        : getHomePageSection(results, 6).map(data => (
+                            <SpaceShipCard
+                                key={data.name}
+                                image={getImages(SPACESHIPS)}
+                            // title={data.name}
                             />
                         ))
 
