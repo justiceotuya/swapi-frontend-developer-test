@@ -1,28 +1,18 @@
 import React from 'react';
-import Home from './containers/home/Home';
-import { StateProvider } from './StateContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const initialState = {
-    data: {},
-    loading: true,
-};
-
-const reducer = (state, action) => {
-    const { type, payload } = action;
-    switch (type) {
-    case 'loading':
-        return { ...state, loading: !state.loading };
-    case 'fetch data':
-        console.log(action.payload);
-        return { ...state, loading: false, data: action.payload };
-    default:
-        return state;
-    }
-};
+import { StateProvider, initialState, reducer } from './store';
+import { Home } from './containers/home';
 
 const App = () => (
     <StateProvider initialState={initialState} reducer={reducer}>
-        <Home />
+        <Router>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                {/* <Route exact path="/checkout" component={Checkout} />
+                <Route component={NoMatch} /> */}
+            </Switch>
+        </Router>
     </StateProvider>
 );
 

@@ -1,22 +1,21 @@
 /* eslint-disable camelcase */
-import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Card.module.css';
+import React from 'react';
+
 import { ReactComponent as Logo } from '../../assets/next.svg';
 import { STRINGS, describeSpaceShip } from './constants';
+import styles from './Card.module.css';
 
 const { READ_MORE } = STRINGS;
 const {
-    cardContainer,
-    cardTitle,
-    cardText,
-    cardButton,
+    spaceCardContainer,
+    spaceCardTitle,
+    spaceCardText,
+    spaceCardButton,
     cardImage,
-    cardImageContainer,
-    cardTextContainer,
+    spaceCardImageContainer,
+    spaceCardTextContainer,
     readmoreButton,
-    cardModel,
-    cardCargoCapacity,
 } = styles;
 
 const SpaceShipCard = ({
@@ -28,16 +27,17 @@ const SpaceShipCard = ({
     cargo_capacity,
     manufacturer,
 }) => (
-    <div className={cardContainer}>
-        <div className={cardImageContainer}>
+    <div className={spaceCardContainer}>
+        <div className={spaceCardImageContainer}>
             <img src={image} alt="character" className={cardImage} />
         </div>
-        <div className={cardTextContainer}>
-            <p className={cardTitle}>{name}</p>
-            <p className={cardText}>
+        <div className={spaceCardTextContainer}>
+            <p className={spaceCardTitle}>{name}</p>
+            <p className={spaceCardText}>
                 {
                     describeSpaceShip(
                         length,
+                        name,
                         model,
                         starship_class,
                         cargo_capacity,
@@ -45,11 +45,10 @@ const SpaceShipCard = ({
                     )
                 }
             </p>
-            <a href="#" className={cardButton}>
+            <a href="#" className={spaceCardButton}>
                 {READ_MORE}
                 <Logo className={readmoreButton} />
             </a>
-
         </div>
     </div>
 );

@@ -1,4 +1,5 @@
-.cardContainer {
+.spaceCardContainer,
+.characterCardContainer {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -10,15 +11,16 @@
 }
 
 
-.cardImage {
+.cardImage,
+.characterCardImage {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     animation: fadein 3s;
     -webkit-animation: fadein 4s;
 }
 
-.cardImageContainer {
+.spaceCardImageContainer {
     height: calc(58% - 10px);
     border-top: 10px solid #000;
     border-bottom: 10px solid #000;
@@ -26,7 +28,7 @@
     z-index: 3
 }
 
-.cardTextContainer {
+.spaceCardTextContainer {
     background: #F2F2F2;
     position: absolute;
     height: calc(42% - 35px);
@@ -42,27 +44,25 @@
     -webkit-animation: fadein 2s;
 }
 
-.cardTitle,
-.cardText,
-.cardButton,
+.spaceCardTitle,
+.spaceCardText,
+.spaceCardButton,
 .cardFinalText {
     display: block;
     margin: .5em 0;
 }
 
-.cardTitle {
+.spaceCardTitle {
     font-size: 24px;
     font-weight: 600;
     margin: 0
 }
 
-.cardText {
+.spaceCardText {
     /* line-height: 150% */
     margin: 0;
     font-size: 14px
 }
-
-.cardModel {}
 
 .cardCargoCapacity {
     font-size: 12px;
@@ -70,7 +70,7 @@
     margin: 0
 }
 
-.cardButton {
+.spaceCardButton {
     padding: 15px 25px;
     background: #D8D8D8;
     position: absolute;
@@ -84,9 +84,7 @@
 }
 
 
-.cardText {}
-
-.cardFinalText {}
+.spaceCardText {}
 
 .readmoreButton {
     fill: #303040;
@@ -94,14 +92,70 @@
     margin-left: 10px;
 }
 
-.cardButton:hover {
+.spaceCardButton:hover {
     background-color: #0D0D18;
     color: #fff
 }
 
-.cardButton:hover .readmoreButton {
+.spaceCardButton:hover .readmoreButton {
     fill: #fff
 }
+
+
+/* *********************************************************
+*           character cards
+*************************************************************/
+
+.characterCardContainer {}
+
+.characterCardImageContainer {
+    flex: 2;
+}
+
+.characterCardImage {}
+
+.characterCardTextContainer {
+    flex: 1;
+    margin: auto 1em
+}
+
+.characterCardTitle {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: .1em 0
+}
+
+.characterCardSubTitle {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic
+}
+
+.characterCardText {}
+
+.characterCardReadmoreLink {
+    font-weight: 600;
+    text-transform: capitalize;
+    position: relative;
+    display: inline-block;
+    text-decoration: none
+}
+
+.characterCardReadmoreLink:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 3px solid #353229;
+    right: 0;
+    bottom: -4px
+}
+
+.characterCardReadmoreLink:hover {
+    opacity: .5;
+}
+
 
 @keyframes fadein {
     from {
@@ -114,15 +168,21 @@
 }
 
 @media screen and (max-width: 300px) {
-    .cardContainer {
+
+    .spaceCardContainer,
+    .characterCardContainer {
         height: 500px
     }
 
 }
 
 @media screen and (min-width: 720px) {
-    .cardTextContainer {
+    .spaceCardTextContainer {
         width: calc(100% - 1em);
         left: 10px;
+    }
+
+    .characterCardContainer {
+        flex-direction: row
     }
 }

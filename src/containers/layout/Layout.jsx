@@ -6,7 +6,7 @@ import styles from './Layout.module.css';
 
 const { layoutContent } = styles;
 
-const Layout = ({ pageTopic, children }) => (
+const Layout = ({ children }) => (
     <>
         <Header />
         <div className={layoutContent}>
@@ -17,7 +17,6 @@ const Layout = ({ pageTopic, children }) => (
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
-    pageTopic: PropTypes.string.isRequired,
 };
 
 export default Layout;
