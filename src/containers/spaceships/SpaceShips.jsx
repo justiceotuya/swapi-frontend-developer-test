@@ -1,44 +1,39 @@
 /* eslint-disable camelcase */
 import React, { useEffect } from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
-import { useStateValue } from '../../store';
-import { getData } from '../../utils';
 import Layout from '../layout';
-import PeopleSection from './components';
+import { getData } from '../../utils';
+import SpaceShipSection from './components';
+import { useStateValue } from '../../store';
 
-const People = () => {
+const SpaceShips = () => {
     const [{ loading, data }, dispatch] = useStateValue();
+
     const makeServerCall = url => {
         getData(url).then(({ data }) => {
             dispatch({
                 payload: data,
-                type: 'getPeoplesData',
+                type: 'getSpaceShipsData',
             });
         });
     };
 
     useEffect(() => {
-        makeServerCall('people');
+        makeServerCall('starships');
     }, []);
 
     const handleSearch = e => {
-        const searchUrl = `people/?search=${e}`;
+        const searchUrl = `starships/?search=${e}`;
         const getSearchData = makeServerCall(searchUrl);
         AwesomeDebouncePromise(getSearchData, 500);
     };
 
-    const { people } = data;
+    const { spaceships } = data;
     return (
-        <Layout
-            handleSearch={handleSearch}
-        >
-            <PeopleSection data={people} loading={loading} />
+        <Layout handleSearch={handleSearch}>
+            <SpaceShipSection data={spaceships} loading={loading} />
         </Layout>
     );
 };
 
-People.propTypes = {
-
-};
-
-export default People;
+export default SpaceShips;

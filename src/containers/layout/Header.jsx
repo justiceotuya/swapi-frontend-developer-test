@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import logo from '../../assets/logo.png';
@@ -21,8 +21,10 @@ const {
     headerHeaderSubTitle,
     headerHeaderSearchContainer,
     headerHeaderSearchBox,
+    headerItemSelector,
 } = styles;
-const Header = () => (
+
+const Header = ({ handleSearch, handleSearchGroup }) => (
     <header className={headerMain}>
         {/* logo */}
         <img src={logo} alt="starwars-logo" className={headerLogo} />
@@ -43,12 +45,19 @@ const Header = () => (
                     id="search"
                     className={headerHeaderSearchBox}
                     placeholder={PLACEHOLDER}
+                    onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
                 />
+            </div>
+
+            <div className={headerItemSelector}>
+
+                <input type="radio" name="group" id="planet" value="planets" onClick={e => handleSearchGroup(e.target.value)} />
+                <input type="radio" name="group" id="planet" value="starships" onClick={e => handleSearchGroup(e.target.value)} />
+                <input type="radio" name="group" id="planet" value="people" onClick={e => handleSearchGroup(e.target.value)} />
             </div>
         </section>
     </header>
 );
-
 Header.propTypes = {
 
 };

@@ -1,28 +1,31 @@
 /* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { getHomePageSection, getCards, getImages } from '../../../utils';
-import styles from '../Home.module.css';
-import SkeletonCard from '../../../components/skeletonCard';
+import {
+    getHomePageSection, getCards, getImages, SPACESHIPS
+} from '../../../utils';
+import styles from '../SpaceShips.module.css';
+import { SkeletonCard } from '../../../components/skeletonCard';
 import { SpaceShipCard } from '../../../components/Card';
-import { SPACESHIPS, STRINGS } from '../constants';
+import { STRINGS } from '../constant';
 
 const { POPULAR_SPACESHIPS, VIEW_MORE } = STRINGS;
-const { starShipSection, homePageTopic, viewMoreButton } = styles;
+const { starShipSection, PageTopic, viewMoreButton } = styles;
 
-const StarShipSection = ({ data, loading }) => {
+const SpaceShipSection = ({ data, loading }) => {
     const { results } = data;
     return (
+
         <section>
-            <h2 className={homePageTopic}>{POPULAR_SPACESHIPS}</h2>
+            <h2 className={PageTopic}>{POPULAR_SPACESHIPS}</h2>
             <div className={starShipSection}>
                 {
                     loading ? getCards().length > 0 && getCards().map(num => (
                         <SkeletonCard key={num} />
                     ))
 
-                        : getHomePageSection(results, 6).map((spaceshipData, index) => {
+                        : (window.location.href.endsWith('/spaceships') ? results : getHomePageSection(results, 6)).map(spaceshipData => {
                             const {
                                 cargo_capacity,
                                 length,
@@ -34,7 +37,7 @@ const StarShipSection = ({ data, loading }) => {
                             return (
                                 <SpaceShipCard
                                     key={name}
-                                    image={getImages(SPACESHIPS, index)}
+                                    image={getImages(SPACESHIPS, results)}
                                     cargo_capacity={cargo_capacity}
                                     length={length}
                                     manufacturer={manufacturer}
@@ -46,14 +49,19 @@ const StarShipSection = ({ data, loading }) => {
                         })
                 }
             </div>
-            <a href="#" className={viewMoreButton}>
-                {VIEW_MORE}
-            </a>
+            {
+                !window.location.href.endsWith('/spaceships') && (
+                    <a href="/spaceships" className={viewMoreButton}>
+                        {VIEW_MORE}
+                    </a>
+                )
+            }
         </section>
+
     );
 };
 
-StarShipSection.propTypes = {
+SpaceShipSection.propTypes = {
     data: PropTypes.shape({
         cargo_capacity: PropTypes.string,
         length: PropTypes.string,
@@ -65,8 +73,8 @@ StarShipSection.propTypes = {
     loading: PropTypes.bool.isRequired,
 };
 
-StarShipSection.defaultProps = {
+SpaceShipSection.defaultProps = {
     data: {},
 };
 
-export default StarShipSection;
+export default SpaceShipSection;

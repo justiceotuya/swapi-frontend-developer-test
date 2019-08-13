@@ -2,18 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CHARACTER, STRINGS } from '../constants';
+import { STRINGS } from '../../home/constants';
 import { CharacterCard } from '../../../components/Card';
-import { getHomePageSection, getCards, getImages } from '../../../utils';
-import styles from '../Home.module.css';
-import SkeletonCard from '../../../components/skeletonCard';
+import {
+    getHomePageSection, getCards, getImages, CHARACTER
+} from '../../../utils';
+import styles from '../People.module.css';
+import { SkeletonCard } from '../../../components/skeletonCard';
 
 const { POPULAR_CHARACTERS, VIEW_MORE } = STRINGS;
-const { homePageTopic, viewMoreButton, charactersSection } = styles;
+const { PageTopic, viewMoreButton, charactersSection } = styles;
 
 const PeopleSection = ({ loading, data: { results } }) => (
     <section>
-        <h2 className={homePageTopic}>{POPULAR_CHARACTERS}</h2>
+        <h2 className={PageTopic}>{POPULAR_CHARACTERS}</h2>
         <div className={charactersSection}>
             {/* <SkeletonCard /> */}
             {
@@ -21,12 +23,12 @@ const PeopleSection = ({ loading, data: { results } }) => (
                     <SkeletonCard key={num} />
                 ))
 
-                    : getHomePageSection(results, 4).map((characterData, index) => {
+                    : (window.location.href.endsWith('/people') ? results : getHomePageSection(results, 4)).map(characterData => {
                         const { name, gender, birth_year } = characterData;
                         return (
                             <CharacterCard
                                 key={characterData.name}
-                                image={getImages(CHARACTER, index)}
+                                image={getImages(CHARACTER, results)}
                                 name={name}
                                 gender={gender}
                                 birthYear={birth_year}
@@ -36,7 +38,7 @@ const PeopleSection = ({ loading, data: { results } }) => (
             }
 
         </div>
-        <a href="#" className={viewMoreButton}>
+        <a href="/people" className={viewMoreButton}>
             {VIEW_MORE}
         </a>
     </section>

@@ -1,44 +1,39 @@
 /* eslint-disable camelcase */
 import React, { useEffect } from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
-import { useStateValue } from '../../store';
-import { getData } from '../../utils';
 import Layout from '../layout';
-import PeopleSection from './components';
+import { getData } from '../../utils';
+import PlanetsSection from './components';
+import { useStateValue } from '../../store';
 
-const People = () => {
+const Planets = () => {
     const [{ loading, data }, dispatch] = useStateValue();
+
     const makeServerCall = url => {
         getData(url).then(({ data }) => {
             dispatch({
                 payload: data,
-                type: 'getPeoplesData',
+                type: 'getPlanetsData',
             });
         });
     };
 
     useEffect(() => {
-        makeServerCall('people');
+        makeServerCall('planets');
     }, []);
 
     const handleSearch = e => {
-        const searchUrl = `people/?search=${e}`;
+        const searchUrl = `planets/?search=${e}`;
         const getSearchData = makeServerCall(searchUrl);
         AwesomeDebouncePromise(getSearchData, 500);
     };
 
-    const { people } = data;
+    const { planets } = data;
     return (
-        <Layout
-            handleSearch={handleSearch}
-        >
-            <PeopleSection data={people} loading={loading} />
+        <Layout handleSearch={handleSearch}>
+            <PlanetsSection data={planets} loading={loading} />
         </Layout>
     );
 };
 
-People.propTypes = {
-
-};
-
-export default People;
+export default Planets;

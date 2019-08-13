@@ -1,4 +1,3 @@
-import PeopleSection from './PeopleSection';
-import StarShipSection from './StarShipSection';
+import PeopleSection from '../../people/components/PeopleSection';
 
-export { PeopleSection, StarShipSection };
+export { PeopleSection };

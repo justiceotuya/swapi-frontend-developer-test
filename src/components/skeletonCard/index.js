@@ -1,3 +1,3 @@
-import SkeletonCard from './SkeletonCard';
+import { SkeletonCard, PeopleSkeletonCard } from './SkeletonCard';
 
-export default SkeletonCard;
+export { SkeletonCard, PeopleSkeletonCard };

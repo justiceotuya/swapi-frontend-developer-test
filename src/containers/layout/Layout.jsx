@@ -6,13 +6,18 @@ import styles from './Layout.module.css';
 
 const { layoutContent } = styles;
 
-const Layout = ({ children }) => (
+const Layout = ({
+    children, handleSearch, handleSearchGroup,
+}) => (
     <>
-        <Header />
-        <div className={layoutContent}>
-            {children}
-        </div>
-    </>
+            <Header
+                handleSearch={handleSearch}
+                handleSearchGroup={handleSearchGroup}
+            />
+            <div className={layoutContent}>
+                {children}
+            </div>
+        </>
 );
 
 Layout.propTypes = {

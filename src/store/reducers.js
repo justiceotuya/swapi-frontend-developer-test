@@ -13,10 +13,24 @@ export const reducer = (state, action) => {
     case 'loading':
         return { ...state, loading: !state.loading };
     case 'getInitialData':
+        console.log('PAYLOAD', payload);
         return {
-            ...state,
-            data: { ...payload },
-            loading: false,
+            ...state, data: { ...payload }, loading: false,
+        };
+    case 'getPeoplesData':
+        console.log('PAYLOAD', payload);
+        return {
+            ...state, data: { ...state.data, people: payload }, loading: false,
+        };
+    case 'getSpaceShipsData':
+        console.log('PAYLOAD', payload);
+        return {
+            ...state, data: { ...state.data, spaceships: payload }, loading: false,
+        };
+    case 'getPlanetsData':
+        console.log('PAYLOAD', payload);
+        return {
+            ...state, data: { ...state.data, planets: payload }, loading: false,
         };
 
     default:

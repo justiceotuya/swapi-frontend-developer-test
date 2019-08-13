@@ -1,4 +1,4 @@
 export const STRINGS = {
-    POPULAR_CHARACTERS: 'Popular Characters',
+    POPULAR_PLANETS: 'Popular Planets',
     VIEW_MORE: 'VIEW MORE',
 };
