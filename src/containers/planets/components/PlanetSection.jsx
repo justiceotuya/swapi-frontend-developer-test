@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ItemsCarousel from 'react-items-carousel';
 import { PlanetCard } from '../../../components/Card';
 import { SkeletonCard } from '../../../components/skeletonCard';
 import { STRINGS } from '../constant';
@@ -13,17 +12,24 @@ import {
 } from '../../../utils';
 
 import styles from '../Planets.module.css';
+import { ViewMoreButton, PaginationButtons } from '../../../components/Buttons';
 
-const { POPULAR_PLANETS, VIEW_MORE } = STRINGS;
+const { POPULAR_PLANETS } = STRINGS;
 const {
     planetCardsSection,
     PageTopic,
-    viewMoreButton,
 } = styles;
 
-const PlanetSection = ({ data, loading }) => {
-    const { results } = data;
-    console.log(data);
+const PlanetSection = ({
+    data,
+    loading,
+    handlePreviousButtonClick,
+    handleNextButtonClick,
+}) => {
+    const {
+        results, count, next, previous, pagination,
+    } = data;
+
     return (
         <section>
             <h2 className={PageTopic}>{POPULAR_PLANETS}</h2>
@@ -69,11 +75,20 @@ const PlanetSection = ({ data, loading }) => {
                 }
             </div>
             {
-                !window.location.href.endsWith('/planets') && (
-                    <a href="/planets" className={viewMoreButton}>
-                        {VIEW_MORE}
-                    </a>
+                window.location.href.endsWith('/planets') ? (
+                    pagination !== undefined && (
+                        <PaginationButtons
+                            paginationData={pagination}
+                            dataSize={count}
+                            handlePreviousButtonClick={handlePreviousButtonClick}
+                            handleNextButtonClick={handleNextButtonClick}
+
+                        />
+                    )
                 )
+                    : (
+                        <ViewMoreButton href="/planets" />
+                    )
             }
         </section>
 
@@ -85,13 +100,19 @@ PlanetSection.propTypes = {
 
 PlanetSection.propTypes = {
     data: PropTypes.shape({
-        cargo_capacity: PropTypes.string,
-        length: PropTypes.string,
-        manufacturer: PropTypes.string,
-        model: PropTypes.string,
+        count: PropTypes.string,
         name: PropTypes.string,
+        next: PropTypes.string,
+        pagination: PropTypes.shape({
+            firstItemCount: PropTypes.string,
+            lastItemCount: PropTypes.string,
+        }).isRequired,
+        previous: PropTypes.string,
+        results: PropTypes.array,
         starship_class: PropTypes.string,
     }),
+    handleNextButtonClick: PropTypes.bool.isRequired,
+    handlePreviousButtonClick: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
 };
 

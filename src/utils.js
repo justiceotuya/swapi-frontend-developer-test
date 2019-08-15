@@ -114,3 +114,37 @@ export const getData = async url => {
     const response = await axios.get(`${baseUrl}/${url}`);
     return response;
 };
+
+export const handlePagination = data => {
+    const {
+        next, results, previous, count,
+    } = data;
+
+    // from the next string, get the next page and deduce the current page
+    let currentPage;
+    let lastItem;
+    // when search is
+    if (next === null && previous !== null) {
+        currentPage = previous + 1;
+        lastItem = count;
+    } if (results !== undefined && next !== null) {
+        const getNextPageFromUrl = next.match(/\d/ig);
+        currentPage = getNextPageFromUrl - 1;
+        lastItem = currentPage * results.length;
+    } if (next === null && previous === null) {
+        currentPage = 1;
+        lastItem = currentPage * results.length;
+    }
+
+    const firstItem = lastItem - (results.length - 1);
+
+    return {
+        firstItemCount: firstItem,
+        lastItemCount: lastItem,
+    };
+};
+
+export const handlePaginationControl = (itemData, item, nextOrPrevious, func) => {
+    const url = itemData[`${item}`][`${nextOrPrevious}`].split('/api/')[1];
+    return item !== null && func(url);
+};

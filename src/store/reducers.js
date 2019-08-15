@@ -1,7 +1,10 @@
+import { handlePagination } from '../utils';
+
 export const initialState = {
     data: {
         people: {},
-        planets: {},
+        planets: {
+        },
         spaceships: {},
     },
     loading: true,
@@ -13,24 +16,20 @@ export const reducer = (state, action) => {
     case 'loading':
         return { ...state, loading: !state.loading };
     case 'getInitialData':
-        console.log('PAYLOAD', payload);
         return {
             ...state, data: { ...payload }, loading: false,
         };
     case 'getPeoplesData':
-        console.log('PAYLOAD', payload);
         return {
-            ...state, data: { ...state.data, people: payload }, loading: false,
+            ...state, data: { ...state.data, people: { ...payload, pagination: handlePagination(payload) } }, loading: false,
         };
     case 'getSpaceShipsData':
-        console.log('PAYLOAD', payload);
         return {
-            ...state, data: { ...state.data, spaceships: payload }, loading: false,
+            ...state, data: { ...state.data, spaceships: { ...payload, pagination: handlePagination(payload) } }, loading: false,
         };
     case 'getPlanetsData':
-        console.log('PAYLOAD', payload);
         return {
-            ...state, data: { ...state.data, planets: payload }, loading: false,
+            ...state, data: { ...state.data, planets: { ...payload, pagination: handlePagination(payload) } }, loading: false,
         };
 
     default:

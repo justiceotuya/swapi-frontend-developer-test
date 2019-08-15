@@ -18,6 +18,18 @@ const Planets = () => {
         });
     };
 
+    const handlePreviousButtonClick = () => {
+        const { planets: { previous } } = data;
+        const url = previous.split('/api/')[1];
+        return previous !== null && makeServerCall(url);
+    };
+
+    const handleNextButtonClick = () => {
+        const { planets: { next } } = data;
+        const url = next.split('/api/')[1];
+        return next !== null && makeServerCall(url);
+    };
+
     useEffect(() => {
         makeServerCall('planets');
     }, []);
@@ -31,7 +43,12 @@ const Planets = () => {
     const { planets } = data;
     return (
         <Layout handleSearch={handleSearch}>
-            <PlanetsSection data={planets} loading={loading} />
+            <PlanetsSection
+                data={planets}
+                loading={loading}
+                handlePreviousButtonClick={handlePreviousButtonClick}
+                handleNextButtonClick={handleNextButtonClick}
+            />
         </Layout>
     );
 };

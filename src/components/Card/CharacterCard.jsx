@@ -22,6 +22,7 @@ const CharacterCard = ({
     image,
     gender,
     birthYear,
+    handleOpenItemDetails,
 }) => (
     <div className={characterCardContainer}>
         <div className={characterCardImageContainer}>
@@ -33,7 +34,12 @@ const CharacterCard = ({
             <p className={characterCardSubTitle}>{birthYear}</p>
             <p className={characterCardText}>
                 {LOREM_FILLER_TEXT}
-                <a href="#" className={characterCardReadmoreLink}>
+                <a
+                    role="button"
+                    tabIndex="-1"
+                    className={characterCardReadmoreLink}
+                    onClick={handleOpenItemDetails}
+                >
                     {READ_MORE}
                 </a>
             </p>
@@ -45,6 +51,7 @@ const CharacterCard = ({
 CharacterCard.propTypes = {
     birthYear: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
+    handleOpenItemDetails: PropTypes.func.isRequired,
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
 import styles from './Layout.module.css';
@@ -24,10 +25,13 @@ const {
     headerItemSelector,
 } = styles;
 
-const Header = ({ handleSearch, handleSearchGroup }) => (
+const Header = ({ handleSearch, isSearchPresent = true }) => (
     <header className={headerMain}>
         {/* logo */}
-        <img src={logo} alt="starwars-logo" className={headerLogo} />
+        <a href="/">
+            <img src={logo} alt="starwars-logo" className={headerLogo} />
+        </a>
+
         {/* header  */}
         <section className={headerContainer}>
             <div className={headerHeaderContainer}>
@@ -39,22 +43,21 @@ const Header = ({ handleSearch, handleSearchGroup }) => (
             <p className={headerHeaderSubTitle}>{SUBTITLE}</p>
 
             {/* search bar */}
-            <div className={headerHeaderSearchContainer}>
-                <input
-                    type="text"
-                    id="search"
-                    className={headerHeaderSearchBox}
-                    placeholder={PLACEHOLDER}
-                    onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
-                />
-            </div>
+            {
+                isSearchPresent
+                && (
+                    <div className={headerHeaderSearchContainer}>
+                        <input
+                            type="text"
+                            id="search"
+                            className={headerHeaderSearchBox}
+                            placeholder={PLACEHOLDER}
+                            onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
+                        />
+                    </div>
+                )
 
-            <div className={headerItemSelector}>
-
-                <input type="radio" name="group" id="planet" value="planets" onClick={e => handleSearchGroup(e.target.value)} />
-                <input type="radio" name="group" id="planet" value="starships" onClick={e => handleSearchGroup(e.target.value)} />
-                <input type="radio" name="group" id="planet" value="people" onClick={e => handleSearchGroup(e.target.value)} />
-            </div>
+            }
         </section>
     </header>
 );

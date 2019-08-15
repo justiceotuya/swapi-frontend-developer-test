@@ -9,12 +9,20 @@ import styles from '../SpaceShips.module.css';
 import { SkeletonCard } from '../../../components/skeletonCard';
 import { SpaceShipCard } from '../../../components/Card';
 import { STRINGS } from '../constant';
+import { ViewMoreButton, PaginationButtons } from '../../../components/Buttons';
 
-const { POPULAR_SPACESHIPS, VIEW_MORE } = STRINGS;
-const { starShipSection, PageTopic, viewMoreButton } = styles;
+const { POPULAR_SPACESHIPS } = STRINGS;
+const { starShipSection, PageTopic } = styles;
 
-const SpaceShipSection = ({ data, loading }) => {
-    const { results } = data;
+const SpaceShipSection = ({
+    data,
+    loading,
+    handlePreviousButtonClick,
+    handleNextButtonClick,
+}) => {
+    const {
+        results, count, next, previous, pagination,
+    } = data;
     return (
 
         <section>
@@ -50,11 +58,21 @@ const SpaceShipSection = ({ data, loading }) => {
                 }
             </div>
             {
-                !window.location.href.endsWith('/spaceships') && (
-                    <a href="/spaceships" className={viewMoreButton}>
-                        {VIEW_MORE}
-                    </a>
-                )
+                window.location.href.endsWith('/spaceships')
+                    ? (
+                        pagination !== undefined && (
+                            <PaginationButtons
+                                paginationData={pagination}
+                                dataSize={count}
+                                handlePreviousButtonClick={handlePreviousButtonClick}
+                                handleNextButtonClick={handleNextButtonClick}
+                            />
+                        )
+
+                    )
+                    : (
+                        <ViewMoreButton href="/spaceships" />
+                    )
             }
         </section>
 

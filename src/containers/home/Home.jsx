@@ -39,51 +39,14 @@ const Home = () => {
             }));
     }, []);
 
-    // use the selected search group to search
-    const handleSearch = e => {
-        let dispatchType;
-
-        switch (searchGroup) {
-        case 'people':
-            dispatchType = 'getPeoplesData';
-            break;
-        case 'starships':
-            dispatchType = 'getSpaceShipsData';
-            break;
-        case 'planets':
-            dispatchType = 'getPlanetsData';
-            break;
-        default:
-            dispatchType = '';
-            break;
-        }
-
-        const searchUrl = `${searchGroup}/?search=${e}`;
-        const getSearchData = getData(searchUrl).then(({ data }) => {
-            console.log(data);
-            dispatch({
-                payload: data,
-                type: dispatchType,
-            });
-        });
-
-        AwesomeDebouncePromise(getSearchData, 500);
-    };
-
-    // set the group to be searched
-    const handleSearchGroup = e => {
-        setSearchGroup(e);
-    };
-
     const { spaceships, planets, people } = data;
     return (
-        <Layout
-            handleSearch={handleSearch}
-            handleSearchGroup={handleSearchGroup}
-        >
+        <Layout isSearchPresent={false}>
             {/* spaceships */}
-            <SpaceShipSection data={spaceships} loading={loading}
-             />
+            <SpaceShipSection
+                data={spaceships}
+                loading={loading}
+            />
             {/* planets */}
             <PlanetSection
                 data={planets}

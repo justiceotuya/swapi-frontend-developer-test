@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import Layout from '../layout';
-import { getData } from '../../utils';
+import { getData, handlePaginationControl } from '../../utils';
 import SpaceShipSection from './components';
 import { useStateValue } from '../../store';
 
@@ -22,6 +22,14 @@ const SpaceShips = () => {
         makeServerCall('starships');
     }, []);
 
+    const handlePreviousButtonClick = () => {
+        handlePaginationControl(data, 'spaceships', 'previous', makeServerCall);
+    };
+
+    const handleNextButtonClick = () => {
+        handlePaginationControl(data, 'spaceships', 'next', makeServerCall);
+    };
+
     const handleSearch = e => {
         const searchUrl = `starships/?search=${e}`;
         const getSearchData = makeServerCall(searchUrl);
@@ -31,7 +39,12 @@ const SpaceShips = () => {
     const { spaceships } = data;
     return (
         <Layout handleSearch={handleSearch}>
-            <SpaceShipSection data={spaceships} loading={loading} />
+            <SpaceShipSection
+                data={spaceships}
+                loading={loading}
+                handlePreviousButtonClick={handlePreviousButtonClick}
+                handleNextButtonClick={handleNextButtonClick}
+            />
         </Layout>
     );
 };
