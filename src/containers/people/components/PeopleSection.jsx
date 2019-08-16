@@ -51,8 +51,6 @@ const PeopleSection = ({
                             );
                         })
                     }
-                    {/* <option value="Option2">Option2</option>
-                <option value="Option3">Option3</option> */}
                 </select>
             </div>
 
@@ -64,7 +62,7 @@ const PeopleSection = ({
                     ))
 
                         : (window.location.href.endsWith('/people') ? results : getHomePageSection(results, 4)).map(characterData => {
-                            const { name, gender, birth_year } = characterData;
+                            const { name } = characterData;
                             return (
                                 <CharacterCard
                                     key={name}

@@ -8,12 +8,9 @@ import PeopleSection from './components';
 import { GENDERS } from './constant';
 import styles from './People.module.css';
 
-
-
 const People = () => {
     const [{ loading, data }, dispatch] = useStateValue();
     const [selectedValue, setselectedValue] = useState('All');
-    const [peoplesData, setPeoplesData] = useState(data.people);
 
     const makeServerCall = url => {
         getData(url).then(({ data }) => {
@@ -78,20 +75,7 @@ const People = () => {
 
     return (
         <Layout handleSearch={handleSearch}>
-            {/* <div className={filterContainer}>
-                <p className={filterHeading}>Filter</p>
-                <select className={filterSelect} value={selectedValue} onChange={handleFilterGender}>
-                    {
-                        GENDERS.map(gender => {
-                            const { id, value } = gender;
-                            return (
-                                <option key={id} value={value}>{value}</option>
-                            );
-                        })
-                    }
 
-                </select>
-            </div> */}
             <PeopleSection
                 data={filterData()}
                 loading={loading}

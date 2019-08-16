@@ -144,7 +144,9 @@
     text-transform: capitalize;
     position: relative;
     display: inline-block;
-    text-decoration: none
+    text-decoration: none;
+    margin-left: 12px;
+    color: #353229
 }
 
 .characterCardReadmoreLink:after {

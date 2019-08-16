@@ -49,7 +49,6 @@ const CharacterCard = ({
                         role="button"
                         tabIndex="-1"
                         className={characterCardReadmoreLink}
-                        onClick={(e, data) => handleOpenItemDetail(data)}
                     >
 
                         {READ_MORE}

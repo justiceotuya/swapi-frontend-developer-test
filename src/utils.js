@@ -148,3 +148,28 @@ export const handlePaginationControl = (itemData, item, nextOrPrevious, func) =>
     const url = itemData[`${item}`][`${nextOrPrevious}`].split('/api/')[1];
     return item !== null && func(url);
 };
+
+export const handleRecentlyViewedItems = location => {
+    let recentItems = [];
+
+    if (location.data !== undefined) {
+        localStorage.setItem('item', JSON.stringify({ data: location.data, image: location.image }));
+
+        // if local storage  of recent data is empty push this data into it
+        if (location.data !== undefined && localStorage.getItem('recentItems') === null) {
+            recentItems = [...recentItems, location.data];
+            localStorage.setItem('recentItems', JSON.stringify({ recentItems }));
+            return recentItems;
+        } if (JSON.parse(localStorage.getItem('recentItems')).recentItems.length <= 3) {
+            recentItems = [...JSON.parse(localStorage.getItem('recentItems')).recentItems];
+            recentItems = [...recentItems, location.data];
+            localStorage.setItem('recentItems', JSON.stringify({ recentItems }));
+            return recentItems;
+        } if (JSON.parse(localStorage.getItem('recentItems')).recentItems.length > 3) {
+            recentItems = [...JSON.parse(localStorage.getItem('recentItems')).recentItems];
+            recentItems.shift();
+            localStorage.setItem('recentItems', JSON.stringify({ recentItems }));
+            return recentItems;
+        }
+    }
+};

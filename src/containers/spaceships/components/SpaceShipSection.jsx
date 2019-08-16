@@ -46,12 +46,7 @@ const SpaceShipSection = ({
                                 <SpaceShipCard
                                     key={name}
                                     image={getImages(SPACESHIPS, results)}
-                                    cargo_capacity={cargo_capacity}
-                                    length={length}
-                                    manufacturer={manufacturer}
-                                    model={model}
-                                    starship_class={starship_class}
-                                    name={name}
+                                    data={spaceshipData}
                                 />
                             );
                         })

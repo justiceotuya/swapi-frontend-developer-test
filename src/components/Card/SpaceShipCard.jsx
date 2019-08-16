@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/next.svg';
 import { STRINGS, describeSpaceShip } from './constants';
@@ -19,39 +20,54 @@ const {
 } = styles;
 
 const SpaceShipCard = ({
-    name,
     image,
-    model,
-    length,
-    starship_class,
-    cargo_capacity,
-    manufacturer,
-}) => (
-    <div className={spaceCardContainer}>
-        <div className={spaceCardImageContainer}>
-            <img src={image} alt="character" className={cardImage} />
+    data,
+}) => {
+    const {
+        name,
+        length,
+        model,
+        starship_class,
+        cargo_capacity,
+        manufacturer,
+    } = data;
+
+    return (
+        <div className={spaceCardContainer}>
+            <div className={spaceCardImageContainer}>
+                <img src={image} alt="character" className={cardImage} />
+            </div>
+            <div className={spaceCardTextContainer}>
+                <p className={spaceCardTitle}>{name}</p>
+                <p className={spaceCardText}>
+                    {
+                        describeSpaceShip(
+                            length,
+                            name,
+                            model,
+                            starship_class,
+                            cargo_capacity,
+                            manufacturer,
+                        )
+                    }
+                </p>
+                <Link
+                    to={{
+                        data,
+                        image,
+                        pathname: `/spaceship/${name}`,
+                    }}
+                    role="button"
+                    tabIndex="-1"
+                    className={spaceCardButton}
+                >
+                    {READ_MORE}
+                    <Logo className={readmoreButton} />
+                </Link>
+            </div>
         </div>
-        <div className={spaceCardTextContainer}>
-            <p className={spaceCardTitle}>{name}</p>
-            <p className={spaceCardText}>
-                {
-                    describeSpaceShip(
-                        length,
-                        name,
-                        model,
-                        starship_class,
-                        cargo_capacity,
-                        manufacturer,
-                    )
-                }
-            </p>
-            <a href="#" className={spaceCardButton}>
-                {READ_MORE}
-                <Logo className={readmoreButton} />
-            </a>
-        </div>
-    </div>
-);
+    );
+};
 
 SpaceShipCard.propTypes = {
     cargo_capacity: PropTypes.string.isRequired,
