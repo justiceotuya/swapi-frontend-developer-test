@@ -7,12 +7,13 @@ import styles from './Layout.module.css';
 const { layoutContent } = styles;
 
 const Layout = ({
-    children, handleSearch, isSearchPresent,
+    children, handleSearch, isSearchPresent, isItemPage,
 }) => (
     <>
             <Header
                 handleSearch={handleSearch}
                 isSearchPresent={isSearchPresent}
+                isItemPage={isItemPage}
             />
             <div className={layoutContent}>
                 {children}

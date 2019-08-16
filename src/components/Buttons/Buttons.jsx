@@ -31,16 +31,6 @@ export const PaginationButtons = ({
         lastItemCount,
     } = paginationData;
 
-    const handleKeyPress = e => {
-        console.log(e);
-    };
-    // handlePreviousButtonClick = e => {
-    //     console.log(e);
-    // };
-    // handleNextButtonClick = e => {
-    //     console.log(dataSize);
-    // };
-
     return (
         <div className={pagination}>
             <p className={paginationText}>
@@ -56,7 +46,6 @@ export const PaginationButtons = ({
                     className={paginationLessThan}
                     onClick={data => handlePreviousButtonClick(data)}
                     tabIndex={-1}
-                    onKeyPress={handleKeyPress}
                 >
                     &lt;
 
@@ -66,7 +55,6 @@ export const PaginationButtons = ({
                     className={paginationGreaterThan}
                     onClick={data => handleNextButtonClick(data)}
                     tabIndex={-1}
-                    onKeyPress={handleKeyPress}
                 >
                     &gt;
                 </button>

@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { STRINGS } from '../../home/constants';
+import { STRINGS, GENDERS } from '../constant';
 import { CharacterCard } from '../../../components/Card';
 import {
     getHomePageSection, getCards, getImages, CHARACTER
@@ -12,22 +12,50 @@ import { SkeletonCard } from '../../../components/skeletonCard';
 import { PaginationButtons, ViewMoreButton } from '../../../components/Buttons';
 
 const { POPULAR_CHARACTERS } = STRINGS;
-const { PageTopic, charactersSection } = styles;
+const {
+    PageTopic,
+    charactersSection,
+    filterContainer,
+    filterHeading,
+    filterSelect,
+} = styles;
 
 const PeopleSection = ({
     loading,
     data,
-    handleOpenItemDetail,
     handlePreviousButtonClick,
     handleNextButtonClick,
+    selectedValue,
+    handleFilterGender,
 }) => {
     const {
         results, count, next, previous, pagination,
     } = data;
 
+    const handleOpenItemDetail = datas => {
+        console.log(datas);
+    };
+
     return (
         <section>
             <h2 className={PageTopic}>{POPULAR_CHARACTERS}</h2>
+
+            <div className={filterContainer}>
+                <p className={filterHeading}>Filter</p>
+                <select className={filterSelect} value={selectedValue} onChange={handleFilterGender}>
+                    {
+                        GENDERS.map(gender => {
+                            const { id, value } = gender;
+                            return (
+                                <option key={id} value={value}>{value}</option>
+                            );
+                        })
+                    }
+                    {/* <option value="Option2">Option2</option>
+                <option value="Option3">Option3</option> */}
+                </select>
+            </div>
+
             <div className={charactersSection}>
                 {/* <SkeletonCard /> */}
                 {
@@ -40,11 +68,9 @@ const PeopleSection = ({
                             return (
                                 <CharacterCard
                                     key={name}
+                                    data={characterData}
                                     image={getImages(CHARACTER, results)}
-                                    name={name}
-                                    gender={gender}
-                                    birthYear={birth_year}
-                                    handleOpenItemDetail={handleOpenItemDetail}
+                                    handleOpenItemDetail={() => handleOpenItemDetail(characterData)}
                                 />
                             );
                         })

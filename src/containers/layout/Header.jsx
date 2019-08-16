@@ -25,7 +25,7 @@ const {
     headerItemSelector,
 } = styles;
 
-const Header = ({ handleSearch, isSearchPresent = true }) => (
+const Header = ({ handleSearch, isSearchPresent = true, isItemPage = false }) => (
     <header className={headerMain}>
         {/* logo */}
         <a href="/">
@@ -33,32 +33,37 @@ const Header = ({ handleSearch, isSearchPresent = true }) => (
         </a>
 
         {/* header  */}
-        <section className={headerContainer}>
-            <div className={headerHeaderContainer}>
-                <img src={logo} alt="starwars-logo" className={headerHeaderImage} />
-                <h1 className={headerHeaderTitle}>{DIRECTORY}</h1>
-            </div>
+        {
 
-            {/* subheader */}
-            <p className={headerHeaderSubTitle}>{SUBTITLE}</p>
-
-            {/* search bar */}
-            {
-                isSearchPresent
-                && (
-                    <div className={headerHeaderSearchContainer}>
-                        <input
-                            type="text"
-                            id="search"
-                            className={headerHeaderSearchBox}
-                            placeholder={PLACEHOLDER}
-                            onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
-                        />
+            !isItemPage && (
+                <section className={headerContainer}>
+                    <div className={headerHeaderContainer}>
+                        <img src={logo} alt="starwars-logo" className={headerHeaderImage} />
+                        <h1 className={headerHeaderTitle}>{DIRECTORY}</h1>
                     </div>
-                )
 
-            }
-        </section>
+                    {/* subheader */}
+                    <p className={headerHeaderSubTitle}>{SUBTITLE}</p>
+
+                    {/* search bar */}
+                    {
+                        isSearchPresent
+                        && (
+                            <div className={headerHeaderSearchContainer}>
+                                <input
+                                    type="text"
+                                    id="search"
+                                    className={headerHeaderSearchBox}
+                                    placeholder={PLACEHOLDER}
+                                    onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
+                                />
+                            </div>
+                        )
+
+                    }
+                </section>
+            )
+        }
     </header>
 );
 Header.propTypes = {

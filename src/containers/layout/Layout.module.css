@@ -1,5 +1,5 @@
 .headerMain {
-    height: 35%;
+    height: 20vh;
     background-image: url('../../assets/hero-banner.jpg');
     color: #fff;
     display: flex;
@@ -23,9 +23,9 @@
 }
 
 .headerLogo {
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 2em 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .headerHeaderContainer {
@@ -95,11 +95,6 @@
 
 
 @media screen and (min-width: 720px) {
-    .headerLogo {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-    }
 
     .headerHeaderSubTitle {
         max-width: 60%;
@@ -122,8 +117,6 @@
 
 @media screen and (min-width: 1024px) {
     .headerLogo {
-        position: absolute;
-        top: 20px;
         left: 40px;
     }
 
@@ -160,13 +153,3 @@
     }
 
 }
-
-
-/* label:before {
-    content: url('../../assets/search.svg');
-    position: absolute;
-    width: 21px;
-    height: 21px;
-    left: 100px;
-    z-index: 2
-} */

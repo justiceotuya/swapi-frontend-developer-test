@@ -1,13 +1,19 @@
 /* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { useStateValue } from '../../store';
 import { getData, handlePagination, handlePaginationControl } from '../../utils';
 import Layout from '../layout';
 import PeopleSection from './components';
+import { GENDERS } from './constant';
+import styles from './People.module.css';
+
+
 
 const People = () => {
     const [{ loading, data }, dispatch] = useStateValue();
+    const [selectedValue, setselectedValue] = useState('All');
+    const [peoplesData, setPeoplesData] = useState(data.people);
 
     const makeServerCall = url => {
         getData(url).then(({ data }) => {
@@ -28,6 +34,7 @@ const People = () => {
 
     useEffect(() => {
         makeServerCall('people');
+        filterData();
     }, []);
 
     const handleSearch = e => {
@@ -36,19 +43,62 @@ const People = () => {
         AwesomeDebouncePromise(getSearchData, 500);
     };
 
-    const handleOpenItemDetail = (e, results) => {
-        console.log('alive', results);
+    const handleFilterGender = e => {
+        setselectedValue(e.target.value);
     };
 
-    const { people } = data;
+    const newDataCopy = { ...data };
+    const { people } = newDataCopy;
+    const newPeople = { ...people };
+    let filteredData = [];
+    const filter = results => {
+        filteredData = data.people.results.filter(result => result.gender.toLowerCase() === selectedValue.toLowerCase());
+        newPeople.results = filteredData;
+        return newPeople;
+    };
+
+    const filterData = () => {
+        const { results } = people;
+        if (selectedValue === 'Male') {
+            filter(results);
+        } else if (selectedValue === 'Female') {
+            filter(results);
+        } else if (selectedValue === 'Robot') {
+            filteredData = data.people.results.filter(result => result.gender.toLowerCase() === 'n/a');
+            newPeople.results = filteredData;
+            return newPeople;
+        } else { return newPeople; }
+
+        return newPeople;
+    };
+
+    useEffect(() => {
+        filterData();
+    }, [selectedValue]);
+
     return (
         <Layout handleSearch={handleSearch}>
+            {/* <div className={filterContainer}>
+                <p className={filterHeading}>Filter</p>
+                <select className={filterSelect} value={selectedValue} onChange={handleFilterGender}>
+                    {
+                        GENDERS.map(gender => {
+                            const { id, value } = gender;
+                            return (
+                                <option key={id} value={value}>{value}</option>
+                            );
+                        })
+                    }
+
+                </select>
+            </div> */}
             <PeopleSection
-                data={people}
+                data={filterData()}
                 loading={loading}
-                handleOpenItemDetail={e => handleOpenItemDetail(e, 'test')}
                 handlePreviousButtonClick={handlePreviousButtonClick}
                 handleNextButtonClick={handleNextButtonClick}
+                selectedValue={selectedValue}
+                handleFilterGender={handleFilterGender}
             />
         </Layout>
     );
