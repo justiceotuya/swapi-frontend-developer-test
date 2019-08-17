@@ -20,7 +20,6 @@ const {
 
 const CharacterCard = ({
     data,
-    handleOpenItemDetail,
     image,
 }) => {
     const {
@@ -66,7 +65,6 @@ CharacterCard.propTypes = {
         gender: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     }).isRequired,
-    handleOpenItemDetail: PropTypes.func.isRequired,
     image: PropTypes.string.isRequired,
 };
 

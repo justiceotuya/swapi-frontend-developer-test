@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { useStateValue } from '../../store';
 
 import Layout from '../layout';
@@ -17,7 +16,6 @@ const getPeoplesData = getData('people');
 
 const Home = () => {
     const [{ loading, data }, dispatch] = useStateValue();
-    const [searchGroup, setSearchGroup] = useState('');
 
     useEffect(() => {
         axios.all([getStarShipData, getPlanetsData, getPeoplesData])
@@ -28,13 +26,13 @@ const Home = () => {
             ) => {
                 // Both requests are now complete and you can setSate here.
                 dispatch({
-                    type: 'getInitialData',
                     payload:
                     {
                         people: PeoplesResult.data,
                         planets: PlanetsResult.data,
                         spaceships: StarShipResult.data,
                     },
+                    type: 'getInitialData',
                 });
             }));
     }, []);

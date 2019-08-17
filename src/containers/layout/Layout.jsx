@@ -23,6 +23,9 @@ const Layout = ({
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    handleSearch: PropTypes.func.isRequired,
+    isItemPage: PropTypes.bool.isRequired,
+    isSearchPresent: PropTypes.bool.isRequired,
 };
 
 export default Layout;

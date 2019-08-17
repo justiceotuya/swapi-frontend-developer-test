@@ -28,8 +28,12 @@ export const describePlanet = data => {
         surface_water,
         gravity,
     } = data;
-    return (`${name} is a ${climate} planet with a diameter of ${diameter.toLocaleString()} kilometers, it has a ${terrain} and is home to about ${population.toLocaleString()} species.
+    return (
+        `${name} is a ${climate} planet with a diameter of
+        ${diameter.toLocaleString()} kilometers, it has a
+        ${terrain} and is home to about ${population.toLocaleString()} species.
 
-${name} has a ${rotation_period.toLocaleString()} hour rotation period , ${orbital_period} obital period , ${surface_water}%  ans its gravity is ${gravity}`
+${name} has a ${rotation_period.toLocaleString()} hour rotation period ,
+ ${orbital_period} obital period , ${surface_water}%  ans its gravity is ${gravity}`
     );
 };

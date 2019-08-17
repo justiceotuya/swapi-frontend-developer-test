@@ -70,13 +70,15 @@ const SpaceShipCard = ({
 };
 
 SpaceShipCard.propTypes = {
-    cargo_capacity: PropTypes.string.isRequired,
+    data: PropTypes.shapeof({
+        cargo_capacity: PropTypes.string.isRequired,
+        length: PropTypes.string.isRequired,
+        manufacturer: PropTypes.string.isRequired,
+        model: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        starship_class: PropTypes.string.isRequired,
+    }).isRequired,
     image: PropTypes.string.isRequired,
-    length: PropTypes.string.isRequired,
-    manufacturer: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    starship_class: PropTypes.string.isRequired,
 };
 
 export default SpaceShipCard;

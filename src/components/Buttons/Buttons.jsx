@@ -1,8 +1,13 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { VIEW_MORE, getPaginationDetails } from './constant';
+
+import {
+    STRINGS, getPaginationDetails
+} from './constant';
 import style from './Buttton.module.css';
+
+const { VIEW_MORE, LESS_THAN, GREATER_THAN } = STRINGS;
 
 const {
     viewMoreButton,
@@ -11,7 +16,6 @@ const {
     paginationButton,
     paginationGreaterThan,
     paginationLessThan,
-    disabled,
 } = style;
 
 export const ViewMoreButton = ({ href }) => (
@@ -47,8 +51,7 @@ export const PaginationButtons = ({
                     onClick={data => handlePreviousButtonClick(data)}
                     tabIndex={-1}
                 >
-                    &lt;
-
+                    {LESS_THAN}
                 </button>
                 <button
                     type="button"
@@ -56,7 +59,7 @@ export const PaginationButtons = ({
                     onClick={data => handleNextButtonClick(data)}
                     tabIndex={-1}
                 >
-                    &gt;
+                    {GREATER_THAN}
                 </button>
             </div>
         </div>

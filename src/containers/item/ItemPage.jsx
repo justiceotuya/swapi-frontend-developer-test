@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { useStateValue } from '../../store';
+import React from 'react';
 
-import logo from '../../assets/logo.png';
+import { useStateValue } from '../../store';
 import styles from './ItemPage.module.css';
 import { STRINGS, fakeData } from './constants';
 import Layout from '../layout';
-import { PeopleSection } from '../people';
 import { CharacterCard, SpaceShipCard } from '../../components/Card';
 import {
     getImages, CHARACTER, handleRecentlyViewedItems, SPACESHIPS
@@ -15,6 +11,10 @@ import {
 
 const {
     LOREM,
+    RECENT_ITEMS,
+    GO_BACK,
+    LEFT_SQUARE_BRACKET,
+    RIGHT_SQUARE_BRACKET,
 } = STRINGS;
 
 const {
@@ -28,11 +28,10 @@ const {
 } = styles;
 
 const ItemPage = ({ location }) => {
-    const [{ loading, data }, dispatch] = useStateValue();
+    const [{ data }] = useStateValue();
 
     const recentItems = handleRecentlyViewedItems(location);
     const ItemData = JSON.parse(localStorage.getItem('item'));
-    const imageData = JSON.parse(localStorage.getItem('item')).image;
 
     return (
         <Layout isItemPage>
@@ -45,9 +44,9 @@ const ItemPage = ({ location }) => {
                                 <img src={ItemData.image} alt="test" className={imageDataImage} />
                             </div>
                             <p className={itemName}>
-                                <span className={itemNameBracket}>[</span>
+                                <span className={itemNameBracket}>{LEFT_SQUARE_BRACKET}</span>
                                 {ItemData.data.name}
-                                <span className={itemNameBracket}>]</span>
+                                <span className={itemNameBracket}>{RIGHT_SQUARE_BRACKET}</span>
                             </p>
 
                             <section className={itemSection}>
@@ -62,7 +61,7 @@ const ItemPage = ({ location }) => {
                                     })
                                 }
                             </section>
-                            <h3>Recent Items</h3>
+                            <h3>{RECENT_ITEMS}</h3>
                             <section className={recentItemSection}>
                                 {
                                     recentItems !== undefined && recentItems.map(characterData => {
@@ -85,13 +84,16 @@ const ItemPage = ({ location }) => {
                                 }
                             </section>
                         </>
-                    ) : <p>Go back home and select a data</p>
+                    ) : <p>{GO_BACK}</p>
             }
         </Layout>
     );
 };
 ItemPage.propTypes = {
-
+    location: PropTypes.shapeOf({
+        data: PropTypes.object,
+        image: PropTypes.string,
+    }),
 };
 
 export default ItemPage;

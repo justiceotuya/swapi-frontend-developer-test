@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
 import styles from './Layout.module.css';
@@ -22,7 +21,6 @@ const {
     headerHeaderSubTitle,
     headerHeaderSearchContainer,
     headerHeaderSearchBox,
-    headerItemSelector,
 } = styles;
 
 const Header = ({ handleSearch, isSearchPresent = true, isItemPage = false }) => (
@@ -67,7 +65,13 @@ const Header = ({ handleSearch, isSearchPresent = true, isItemPage = false }) =>
     </header>
 );
 Header.propTypes = {
-
+    handleSearch: PropTypes.func.isRequired,
+    isItemPage: PropTypes.bool,
+    isSearchPresent: PropTypes.bool,
 };
 
+Header.defaultProps = {
+    isItemPage: false,
+    isSearchPresent: true,
+};
 export default Header;
