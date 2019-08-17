@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.02d4ee83.chunk.css",
+    "main.js": "/static/js/main.65a18e21.chunk.js",
+    "main.js.map": "/static/js/main.65a18e21.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.99c254d8.chunk.js": "/static/js/2.99c254d8.chunk.js",
+    "static/js/2.99c254d8.chunk.js.map": "/static/js/2.99c254d8.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.6bc0d2f6ab62508cb5960f1ca7be0c3d.js": "/precache-manifest.6bc0d2f6ab62508cb5960f1ca7be0c3d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.02d4ee83.chunk.css.map": "/static/css/main.02d4ee83.chunk.css.map",
+    "static/media/character-1.jpg": "/static/media/character-1.11ba15d1.jpg",
+    "static/media/character-2.jpg": "/static/media/character-2.40197480.jpg",
+    "static/media/character-3.jpg": "/static/media/character-3.1c623f72.jpg",
+    "static/media/character-4.jpg": "/static/media/character-4.07df505a.jpg",
+    "static/media/Layout.module.css": "/static/media/search.278d8d84.svg",
+    "static/media/next.153ffe78.svg": "/static/media/next.153ffe78.svg",
+    "static/media/planet-1.jpg": "/static/media/planet-1.08506399.jpg",
+    "static/media/planet-2.jpg": "/static/media/planet-2.43fb3800.jpg",
+    "static/media/planet-3.jpg": "/static/media/planet-3.4a7a31f6.jpg",
+    "static/media/starship-1.jpg": "/static/media/starship-1.a977d6d2.jpg",
+    "static/media/starship-2.jpg": "/static/media/starship-2.4df52cf6.jpg",
+    "static/media/starship-3.jpg": "/static/media/starship-3.21bbc6ab.jpg",
+    "static/media/starship-4.jpg": "/static/media/starship-4.92b2c815.jpg",
+    "static/media/starship-5.jpg": "/static/media/starship-5.70c4bcba.jpg",
+    "static/media/starship-6.jpg": "/static/media/starship-6.340c3a01.jpg"
+  }
+}
