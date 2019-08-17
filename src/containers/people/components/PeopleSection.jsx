@@ -39,21 +39,23 @@ const PeopleSection = ({
     return (
         <section>
             <h2 className={PageTopic}>{POPULAR_CHARACTERS}</h2>
-
-            <div className={filterContainer}>
-                <p className={filterHeading}>Filter</p>
-                <select className={filterSelect} value={selectedValue} onChange={handleFilterGender}>
-                    {
-                        GENDERS.map(gender => {
-                            const { id, value } = gender;
-                            return (
-                                <option key={id} value={value}>{value}</option>
-                            );
-                        })
-                    }
-                </select>
-            </div>
-
+            {
+                window.location.href.includes('people') && (
+                    <div className={filterContainer}>
+                        <p className={filterHeading}>Filter</p>
+                        <select className={filterSelect} value={selectedValue} onChange={handleFilterGender}>
+                            {
+                                GENDERS.map(gender => {
+                                    const { id, value } = gender;
+                                    return (
+                                        <option key={id} value={value}>{value}</option>
+                                    );
+                                })
+                            }
+                        </select>
+                    </div>
+                )
+            }
             <div className={charactersSection}>
                 {/* <SkeletonCard /> */}
                 {
