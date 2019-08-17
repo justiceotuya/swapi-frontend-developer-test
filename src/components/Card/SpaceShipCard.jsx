@@ -70,7 +70,7 @@ const SpaceShipCard = ({
 };
 
 SpaceShipCard.propTypes = {
-    data: PropTypes.shapeof({
+    data: PropTypes.shape({
         cargo_capacity: PropTypes.string.isRequired,
         length: PropTypes.string.isRequired,
         manufacturer: PropTypes.string.isRequired,

@@ -10,15 +10,15 @@ const Layout = ({
     children, handleSearch, isSearchPresent, isItemPage,
 }) => (
     <>
-            <Header
-                handleSearch={handleSearch}
-                isSearchPresent={isSearchPresent}
-                isItemPage={isItemPage}
-            />
-            <div className={layoutContent}>
-                {children}
-            </div>
-        </>
+        <Header
+            handleSearch={handleSearch}
+            isSearchPresent={isSearchPresent}
+            isItemPage={isItemPage}
+        />
+        <div className={layoutContent}>
+            {children}
+        </div>
+    </>
 );
 
 Layout.propTypes = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { useStateValue } from '../../store';
 import styles from './ItemPage.module.css';
@@ -90,10 +91,10 @@ const ItemPage = ({ location }) => {
     );
 };
 ItemPage.propTypes = {
-    location: PropTypes.shapeOf({
+    location: PropTypes.shape({
         data: PropTypes.object,
         image: PropTypes.string,
-    }),
+    }).isRequired,
 };
 
 export default ItemPage;
