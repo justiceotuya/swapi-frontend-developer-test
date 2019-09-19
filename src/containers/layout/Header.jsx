@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
 import styles from './Layout.module.css';
@@ -23,12 +24,16 @@ const {
     headerHeaderSearchBox,
 } = styles;
 
-const Header = ({ handleSearch, isSearchPresent = true, isItemPage = false }) => (
+const Header = ({
+    handleSearch,
+    isSearchPresent = true,
+    isItemPage = false,
+}) => (
     <header className={headerMain}>
         {/* logo */}
-        <a href="/">
+        <Link to="/">
             <img src={logo} alt="starwars-logo" className={headerLogo} />
-        </a>
+        </Link>
 
         {/* header  */}
         {
@@ -46,17 +51,17 @@ const Header = ({ handleSearch, isSearchPresent = true, isItemPage = false }) =>
                     {/* search bar */}
                     {
                         isSearchPresent
-                        && (
-                            <div className={headerHeaderSearchContainer}>
-                                <input
-                                    type="text"
-                                    id="search"
-                                    className={headerHeaderSearchBox}
-                                    placeholder={PLACEHOLDER}
-                                    onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
-                                />
-                            </div>
-                        )
+                            && (
+                                <div className={headerHeaderSearchContainer}>
+                                    <input
+                                        type="text"
+                                        id="search"
+                                        className={headerHeaderSearchBox}
+                                        placeholder={PLACEHOLDER}
+                                        onChange={(e, searchGroup) => handleSearch(e.target.value, searchGroup)}
+                                    />
+                                </div>
+                            )
 
                     }
                 </section>

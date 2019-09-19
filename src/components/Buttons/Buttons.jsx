@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import {
     STRINGS, getPaginationDetails
@@ -19,9 +20,9 @@ const {
 } = style;
 
 export const ViewMoreButton = ({ href }) => (
-    <a href={href} className={viewMoreButton}>
+    <Link to={href} className={viewMoreButton}>
         {VIEW_MORE}
-    </a>
+    </Link>
 );
 
 export const PaginationButtons = ({

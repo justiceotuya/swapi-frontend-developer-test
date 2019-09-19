@@ -45,5 +45,9 @@
       "last 1 safari version"
     ],
     "homepage": "https://justiceotuya.github.io/swapi-frontend-developer-test/"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/justiceotuya/swapi-frontend-developer-test.git",
+  "author": "Justice  Otuya <justice.otuya@digitalpulse.ng>",
+  "license": "MIT"
 }

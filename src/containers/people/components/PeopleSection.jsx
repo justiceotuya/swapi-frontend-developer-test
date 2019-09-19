@@ -29,7 +29,7 @@ const PeopleSection = ({
     handleFilterGender,
 }) => {
     const {
-        results, count, next, previous, pagination,
+        results, count, pagination,
     } = data;
 
     const handleOpenItemDetail = datas => {
@@ -99,11 +99,15 @@ const PeopleSection = ({
 
 PeopleSection.propTypes = {
     data: PropTypes.shape({
-        birth_year: PropTypes.string,
-        gender: PropTypes.string,
-        name: PropTypes.string,
+        count: PropTypes.string,
+        pagination: PropTypes.string,
+        results: PropTypes.string,
     }),
+    handleFilterGender: PropTypes.func.isRequired,
+    handleNextButtonClick: PropTypes.func.isRequired,
+    handlePreviousButtonClick: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
+    selectedValue: PropTypes.string.isRequired,
 };
 
 PeopleSection.defaultProps = {

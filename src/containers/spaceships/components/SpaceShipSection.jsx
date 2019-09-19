@@ -35,11 +35,6 @@ const SpaceShipSection = ({
 
                         : (window.location.href.endsWith('/spaceships') ? results : getHomePageSection(results, 6)).map(spaceshipData => {
                             const {
-                                cargo_capacity,
-                                length,
-                                manufacturer,
-                                model,
-                                starship_class,
                                 name,
                             } = spaceshipData;
                             return (
@@ -83,6 +78,8 @@ SpaceShipSection.propTypes = {
         name: PropTypes.string,
         starship_class: PropTypes.string,
     }),
+    handleNextButtonClick: PropTypes.func.isRequired,
+    handlePreviousButtonClick: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
 };
 
